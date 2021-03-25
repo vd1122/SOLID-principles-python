@@ -13,6 +13,7 @@ application.
 Example of LS principle violation
 """
 
+
 class Batsman:
     def __init__(self, batsman_code: str, batsman_name: str):
         self.batsman_code = batsman_code
@@ -22,42 +23,38 @@ class Batsman:
         return self.batsman_name
 
     def get_batting_side(self) -> tuple:
-        return ('N/A' 'Unknown')
+        return "N/A" "Unknown"
 
 
 class RightHandBatsman(Batsman):
     def __init__(self):
-        super().__init__('RHB', 'Right hand batsman')
+        super().__init__("RHB", "Right hand batsman")
 
     def get_batting_side(self) -> str:
-        return 'RHB'
+        return "RHB"
 
 
 class LeftHandBatsman(Batsman):
     def __init__(self):
-        super().__init__('LHB', 'Left hand batsman')
+        super().__init__("LHB", "Left hand batsman")
 
     def get_batting_side(self) -> str:
-        return 'LHB'
+        return "LHB"
 
 
-batsmen = [
-    Batsman(),
-    RightHandBatsman(),
-    LeftHandBatsman()
-]
+batsmen = [Batsman(), RightHandBatsman(), LeftHandBatsman()]
 
 
 for batsman in batsmen:
     # Will error as return type is list vs str as it breaks LSP
-    print (batsmen.get_batsman_feature()[0])
-
+    print(batsmen.get_batsman_feature()[0])
 
 
 """
 Example of LS principle implementation
 """
 
+
 class Batsman:
     def __init__(self, batsman_code: str, batsman_name: str):
         self.batsman_code = batsman_code
@@ -67,31 +64,26 @@ class Batsman:
         return self.batsman_name
 
     def get_batting_side(self) -> tuple:
-        return {'N/A', 'Unknown')
+        return ("N/A", "Unknown")
 
 
 class RightHandBatsman(Batsman):
     def __init__(self):
-        super().__init__('RHB', 'Right hand batsman')
+        super().__init__("RHB", "Right hand batsman")
 
     def get_batting_side(self) -> tuple:
-        return ('RHB', 'Right handed batsman')
+        return ("RHB", "Right handed batsman")
 
 
 class LeftHandBatsman(Batsman):
     def __init__(self):
-        super().__init__('LHB', 'Left hand batsman')
+        super().__init__("LHB", "Left hand batsman")
 
     def get_batting_side(self) -> tuple:
-        return ('LHB', 'Left handed batsman')
+        return ("LHB", "Left handed batsman")
 
 
-batsmen = [
-    Batsman(),
-    RightHandBatsman(),
-    LeftHandBatsman()
-]
+batsmen = [Batsman(), RightHandBatsman(), LeftHandBatsman()]
 
 for batsman in batsmen:
-    print (batsmen.get_batsman_feature()[0])
-
+    print(batsmen.get_batsman_feature()[0])

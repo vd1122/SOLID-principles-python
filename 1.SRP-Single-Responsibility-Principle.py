@@ -11,6 +11,7 @@ i.e. If a class is doing anything other than what is intrinsic to its existence 
 Example of SR principle violation
 """
 
+
 class Player:
     def __init__(self, player_name: str, player_age: int):
         self.player_name = player_name
@@ -37,6 +38,7 @@ In order to make it SRP compatible, we need to separate out non intrinsic method
 Example of SR principle implementation
 """
 
+
 class Player:
     def __init__(self, player_name: str):
         self.player_name = player_name
@@ -53,7 +55,5 @@ class PlayerDB:
     def get_player(self) -> Player:
         pass
 
-    def save_player_details (self, player: Player):
+    def save_player_details(self, player: Player):
         pass
-
-

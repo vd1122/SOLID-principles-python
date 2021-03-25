@@ -11,6 +11,7 @@ should be open for extension, but closed for modification"
 Example of OC principle violation
 """
 
+
 class Game:
     def __init__(self, game_code: str, game_name: str):
         self.game_code = game_code
@@ -20,23 +21,24 @@ class Game:
         return self.game_name
 
     def get_players_required(self) -> str:
-        if self.game_code == 'LawnTennisSingles':
+        if self.game_code == "LawnTennisSingles":
             return 2
-        elif self.game_code == 'LawnTennisDoubles':
+        elif self.game_code == "LawnTennisDoubles":
             return 4
         else:
             raise f'"get_players_required" function needs to implemented for {self.game_name}'
 
 
 games = [
-    Game('LawnTennisSingles', 'Lawn-Tennis Singles'),
-    Game('LawnTennisDoubles', 'Lawn-Tennis Doubles'),
+    Game("LawnTennisSingles", "Lawn-Tennis Singles"),
+    Game("LawnTennisDoubles", "Lawn-Tennis Doubles"),
 ]
 
 
 def games_players_requirement(games: list):
     for game in games:
         print(f'"{game.get_game_name()}" require {game.get_players_required()} players')
+
 
 games_players_requirement(games)
 
@@ -50,6 +52,7 @@ will need to be modified.
 Example of OC principle implementation
 """
 
+
 class Game:
     def __init__(self, game_code: str, game_name: str):
         self.game_code = game_code
@@ -61,30 +64,34 @@ class Game:
     def get_players_required(self) -> int:
         raise f'"get_players_required" function needs to implemented for {self.game_name}'
 
+
 class LawnTennisSingles(Game):
     def __init__(self):
-        super().__init__('LawnTennisSingles', 'Lawn-Tennis Singles')
+        super().__init__("LawnTennisSingles", "Lawn-Tennis Singles")
 
     def get_players_required(self) -> int:
         return 2
 
+
 class LawnTennisDoubles(Game):
     def __init__(self):
-        super().__init__('LawnTennisDoubles', 'Lawn-Tennis Doubles')
+        super().__init__("LawnTennisDoubles", "Lawn-Tennis Doubles")
 
     def get_players_required(self) -> int:
         return 4
 
+
 class BadmintonSingles(Game):
     def __init__(self):
-        super().__init__('BadmintonSingles', 'Badminton Singles')
+        super().__init__("BadmintonSingles", "Badminton Singles")
 
     def get_players_required(self) -> int:
         return 2
 
+
 class BadmintonDoubles(Game):
     def __init__(self):
-        super().__init__('BadmintonDoubles', 'Badminton Doubles')
+        super().__init__("BadmintonDoubles", "Badminton Doubles")
 
     def get_players_required(self) -> int:
         return 4
@@ -94,7 +101,7 @@ games = [
     LawnTennisSingles(),
     LawnTennisDoubles(),
     BadmintonSingles(),
-    BadmintonDoubles()
+    BadmintonDoubles(),
 ]
 
 
@@ -102,8 +109,8 @@ def games_players_requirement(games: list):
     for game in games:
         print(f'"{game.get_game_name()}" require {game.get_players_required()} players')
 
-games_players_requirement(games)
 
+games_players_requirement(games)
 
 
 """
@@ -113,5 +120,3 @@ Every different game class now make game specific implementation, hence base cla
 child class is open for new games.
 
 """
-
-
